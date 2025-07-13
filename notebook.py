@@ -342,7 +342,7 @@ def _(
     with pm.Model() as model:
         _b_prior = pm.InverseGamma("b", mu=b_mu.value, sigma=b_sigma.value)
         _c_prior = pm.InverseGamma("c", mu=c_mu.value, sigma=c_sigma.value)
-        y_obs = pm.Normal(
+        pm.Normal(
             "y_obs",
             mu=saturation(x=x_mu, b=_b_prior, c=_c_prior),
             sigma=scale.value,
